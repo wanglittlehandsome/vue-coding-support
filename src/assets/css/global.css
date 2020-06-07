@@ -1,0 +1,11 @@
+html {
+    font-size: 62.5%;
+    background-color: #fff;
+}
+.ant-layout,.ant-layout-header {
+    background-color: #fff;
+}
+
+.body {
+    position: relative;
+}

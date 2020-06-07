@@ -62,7 +62,7 @@ function request(config) {
         Vue.$httpRequestList.push(cancel) //存储cancle
       })*!/
     }*/).then(function (response) {
-      resolve(response.data);
+      resolve(response); // 没有返reponse.data是因为response拦截里处理了
     })
       .catch(function (error) {
         reject(error);

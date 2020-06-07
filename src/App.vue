@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <router-view/>
-    <div>
+    <!--<div>
       <form :form="form">
         名称： <input type="text" v-model="form.name"/>
         信息：<textarea cols="30" rows="20" v-model="form.info"></textarea>
       </form>
       <button @click="addInfo"> asdasdasdsa</button>
-    </div>
+    </div>-->
   </div>
 </template>
 <script>

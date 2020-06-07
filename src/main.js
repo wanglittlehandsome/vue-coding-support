@@ -5,6 +5,7 @@ import store from './store'
 // import axios from 'axios'
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
+import '@assets/css/global.css';
 
 Vue.use(Antd);  // ant-design-vue
 Vue.config.productionTip = false;

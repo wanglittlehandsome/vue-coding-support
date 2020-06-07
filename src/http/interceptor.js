@@ -31,16 +31,16 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   response => {
     const data = response.data;
-    if (data.code === 2000) {
+    if (data.errorCode === 0) {
       return data.data;
     }
-    if (data.code === 4040) {
+    if (data.errorCode === 4040) {
       return Promise.reject({message: '网络中断'});
     }
-    if (data.code === 4030) {
+    if (data.errorCode === 4030) {
       return Promise.reject({message: '登录过期'});
     }
-    return Promise.reject(data);
+    return Promise.reject(data.data);
   },
   error => {
     error.message = '网络超时';

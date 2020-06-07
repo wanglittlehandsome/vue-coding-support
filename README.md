@@ -1,5 +1,7 @@
 # blog-master
 
+##vue-cli:4.4.1
+
 ## Project setup
 ```
 npm install
