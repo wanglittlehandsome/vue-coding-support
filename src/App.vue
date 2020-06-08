@@ -11,37 +11,37 @@
   </div>
 </template>
 <script>
-  //const qs = require('qs');
-  import qs from 'qs';
-  import request from '@/http/request';
+// const qs = require('qs');
+// import qs from 'qs'
+import request from '@/http/request'
 
-  export default {
-    data() {
-      return {
-        form: {}
-      }
-    },
-    mounted() {
-      this.addInfo();
-    },
-    methods: {
-      addInfo() {
-        console.log(this.form);
-        request.post('/blog/getTags', {name: 11}).then(res => {
-          console.log("aaaaaa:", JSON.stringify(res));
-        }).catch(err => {
-          console.log(JSON.stringify(err));
-        });
-        /*this.$axios.get(
+export default {
+  data () {
+    return {
+      form: {}
+    }
+  },
+  mounted () {
+    this.addInfo()
+  },
+  methods: {
+    addInfo () {
+      console.log(this.form)
+      request.post('/blog/getTags', { name: 11 }).then(res => {
+        console.log('aaaaaa:', JSON.stringify(res))
+      }).catch(err => {
+        console.log(JSON.stringify(err))
+      })
+      /* this.$axios.get(
           'http://127.0.0.1:8092/blog/getTags',
           {params: {name: 11}},
           {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
         ).then(res => {
           console.log(res)
-        })*/
-      }
-    },
+        }) */
+    }
   }
+}
 </script>
 <style>
   #app {
@@ -51,6 +51,5 @@
     text-align: center;
     color: #2c3e50;
   }
-
 
 </style>

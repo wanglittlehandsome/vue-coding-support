@@ -1,56 +1,65 @@
 <template>
-  <a-layout id="components-layout-demo-fixed">
-    <a-layout-header :style="{ position: 'fixed', zIndex: 1, width: '100%' }">
-      <div class="logo"/>
-      <a-menu
-        theme="dark"
-        mode="horizontal"
-        :default-selected-keys="['2']"
-        :style="{ lineHeight: '64px' }"
-      >
-        <a-menu-item key="1">
-          nav 1
-        </a-menu-item>
-        <a-menu-item key="2">
-          nav 2
-        </a-menu-item>
-        <a-menu-item key="3">
-          nav 3
-        </a-menu-item>
-      </a-menu>
-    </a-layout-header>
-    <a-layout-content :style="{ padding: '0 50px', marginTop: '64px' }">
-      <a-breadcrumb :style="{ margin: '16px 0' }">
-        <a-breadcrumb-item>Home</a-breadcrumb-item>
-        <a-breadcrumb-item>List</a-breadcrumb-item>
-        <a-breadcrumb-item>App</a-breadcrumb-item>
-      </a-breadcrumb>
-      <div :style="{ background: '#fff', padding: '24px', minHeight: '380px' }">
-        Content
-      </div>
-    </a-layout-content>
-    <a-layout-footer :style="{ textAlign: 'center' }">
-      Ant Design ©2018 Created by Ant UED
-    </a-layout-footer>
-  </a-layout>
+  <div class="body">
+    <div id="components-layout-demo-basic">
+      <a-layout>
+        <com-head/>
+        <a-layout-content>
+          <a-carousel autoplay>
+            <div><h3>1</h3></div>
+            <div><h3>2</h3></div>
+            <div><h3>3</h3></div>
+            <div><h3>4</h3></div>
+          </a-carousel>
+          <a-card hoverable style="width: 240px">
+            <img
+              slot="cover"
+              alt="example"
+              src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+            />
+            <a-card-meta title="Europe Street beat">
+              <template slot="description">
+                www.instagram.com
+              </template>
+            </a-card-meta>
+          </a-card>
+        </a-layout-content>
+        <a-layout-footer>Footer</a-layout-footer>
+      </a-layout>
+    </div>
+  </div>
 </template>
 
 <script>
-  export default {
-    name: "idnex",
-    data() {
-      return {
-      };
-    },
-  };
+import comHead from '@components/head'
+
+export default {
+  name: 'index',
+  components: {
+    comHead
+  },
+  data () {
+    return {
+    }
+  },
+  methods: {
+
+  },
+  mounted () {
+    console.log('username:', this.$route.params.userName)
+  }
+}
 </script>
 
 <style>
-  #components-layout-demo-fixed .logo {
-    width: 120px;
-    height: 31px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px 24px 16px 0;
-    float: left;
+  .ant-carousel >>> .slick-slide {
+    text-align: center;
+    height: 160px;
+    line-height: 160px;
+    background: #364d79;
+    overflow: hidden;
+  }
+
+  .ant-carousel >>> .slick-slide h3 {
+    color: #fff;
   }
 </style>

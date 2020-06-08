@@ -74,44 +74,44 @@
     border-color: #f1af87;
   }
 
-
 </style>
 
 <script>
-  import comHead from '@components/head';
-  import request from '@/http/request';
+import comHead from '@components/head'
+import request from '@/http/request'
 
-  export default {
-    beforeCreate() {
-      this.form = this.$form.createForm(this, {name: 'normal_login'});
-    },
-    name: "login",
-    components: {
-      comHead
-    },
-    data() {
-      return {};
-    },
-    methods: {
-      handleSubmit(e) {
-        e.preventDefault();
-        this.form.validateFields((err, values) => {
-          if (!err) {
-            console.log('Received values of form: ', values);
-            request.post('/blog/getTags2', values).then(res => {
-              console.log("res:", JSON.stringify(res));
-              this.$message.success('请求成功');
-            }).catch(err => {
-              console.log("res:", err);
-              this.$message.error('请求失败');
-            });
-          } else {
-            this.$message.error('数据有误！请检查必填项');
-          }
-        });
-      },
-    },
-  };
+export default {
+  beforeCreate () {
+    this.form = this.$form.createForm(this, { name: 'normal_login' })
+  },
+  name: 'login',
+  components: {
+    comHead
+  },
+  data () {
+    return {}
+  },
+  methods: {
+    handleSubmit (e) {
+      e.preventDefault()
+      this.form.validateFields((err, values) => {
+        if (!err) {
+          this.$router.push({ name: 'index', params: values })
+          /* console.log('Received values of form: ', values)
+          request.post('/blog/getTags', values).then(res => {
+            console.log('res:', JSON.stringify(res))
+            this.$message.success('请求成功')
+          }).catch(err => {
+            console.log('res:', err)
+            this.$message.error('请求失败')
+          }) */
+        } else {
+          this.$message.error('数据有误！请检查必填项')
+        }
+      })
+    }
+  }
+}
 </script>
 
 <style>

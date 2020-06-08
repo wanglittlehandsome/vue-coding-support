@@ -9,9 +9,9 @@
 </template>
 
 <script>
-  export default {
-    name: "com-head"
-  }
+export default {
+  name: 'com-head'
+}
 </script>
 
 <style>

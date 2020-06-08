@@ -1,14 +1,14 @@
-let apiUrl = "";
+let apiUrl = ''
 
 switch (process.env.VUE_APP_ENV) {
   case 'dev':
     apiUrl = 'http://127.0.0.1:8092'
-    break;
+    break
   case 'test':
     apiUrl = 'http://127.0.0.1:8093'
-    break;
+    break
   default:
-    break;
+    break
 }
 
 const config = {
@@ -19,6 +19,4 @@ const config = {
   }
 }
 
-export default config;
-
-
+export default config

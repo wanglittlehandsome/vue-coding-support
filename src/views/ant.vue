@@ -55,14 +55,11 @@
   }
 </style>
 
-
-
-
 <script>
 
-  export default {
-        name: "ant"
-    }
+export default {
+  name: 'ant'
+}
 </script>
 
 <style scoped>

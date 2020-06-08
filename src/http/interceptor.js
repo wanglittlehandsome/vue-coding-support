@@ -1,13 +1,13 @@
-import Config from '@/http/config';
-import axios from 'axios';
+import Config from '@/http/config'
+import axios from 'axios'
 
-const instance = axios.create({    //创建axios实例，在这里可以设置请求的默认配置
+const instance = axios.create({ // 创建axios实例，在这里可以设置请求的默认配置
   timeout: 10 * 1000, // 设置超时时间10s
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded'
   },
-  baseURL: Config.get().apiUrl   //根据自己配置的反向代理去设置不同环境的baeUrl
-});
+  baseURL: Config.get().apiUrl // 根据自己配置的反向代理去设置不同环境的baeUrl
+})
 
 // request拦截器
 instance.interceptors.request.use(
@@ -18,36 +18,34 @@ instance.interceptors.request.use(
     // if (token) {
     //   config.headers.Authorization = 'JWT ' + token;
     // }
-    return config;
+    return config
   },
   error => {
     // Do something with request error
-    console.log("interceptor: ", error); // for debug
-    return Promise.reject(error);
+    console.log('interceptor: ', error) // for debug
+    return Promise.reject(error)
   }
-);
+)
 
 // response 拦截
 instance.interceptors.response.use(
   response => {
-    const data = response.data;
+    const data = response.data
     if (data.errorCode === 0) {
-      return data.data;
+      return data.data
     }
     if (data.errorCode === 4040) {
-      return Promise.reject({message: '网络中断'});
+      return Promise.reject({ message: '网络中断' })
     }
     if (data.errorCode === 4030) {
-      return Promise.reject({message: '登录过期'});
+      return Promise.reject({ message: '登录过期' })
     }
-    return Promise.reject(data.data);
+    return Promise.reject(data.data)
   },
   error => {
-    error.message = '网络超时';
-    return Promise.reject(error);
+    error.message = '网络超时'
+    return Promise.reject(error)
   }
-);
+)
 
-
-export default instance;
-
+export default instance
