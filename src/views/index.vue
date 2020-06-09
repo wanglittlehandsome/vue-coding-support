@@ -2,14 +2,8 @@
   <div class="body">
     <div id="components-layout-demo-basic">
       <a-layout>
-        <com-head/>
+        <wyHeader/>
         <a-layout-content>
-          <a-carousel autoplay>
-            <div><h3>1</h3></div>
-            <div><h3>2</h3></div>
-            <div><h3>3</h3></div>
-            <div><h3>4</h3></div>
-          </a-carousel>
           <a-card hoverable style="width: 240px">
             <img
               slot="cover"
@@ -23,19 +17,21 @@
             </a-card-meta>
           </a-card>
         </a-layout-content>
-        <a-layout-footer>Footer</a-layout-footer>
+        <wyFooter/>
       </a-layout>
     </div>
   </div>
 </template>
 
 <script>
-import comHead from '@components/head'
+import wyHeader from '@components/header'
+import wyFooter from '@components/footer'
 
 export default {
   name: 'index',
   components: {
-    comHead
+    wyHeader,
+    wyFooter
   },
   data () {
     return {
@@ -51,15 +47,5 @@ export default {
 </script>
 
 <style>
-  .ant-carousel >>> .slick-slide {
-    text-align: center;
-    height: 160px;
-    line-height: 160px;
-    background: #364d79;
-    overflow: hidden;
-  }
 
-  .ant-carousel >>> .slick-slide h3 {
-    color: #fff;
-  }
 </style>

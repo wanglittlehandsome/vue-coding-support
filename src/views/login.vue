@@ -2,7 +2,7 @@
   <div class="body">
     <div id="components-layout-demo-basic">
       <a-layout>
-        <com-head/>
+        <wyHeader/>
         <a-layout-content>
           <h2>登录平台</h2>
           <p>基于ant-desigon-vue的极致体验</p>
@@ -43,27 +43,13 @@
             </a-form-item>
           </a-form>
         </a-layout-content>
-        <a-layout-footer>Footer</a-layout-footer>
+        <wyFooter/>
       </a-layout>
     </div>
   </div>
 </template>
 
 <style>
-  #components-layout-demo-basic .ant-layout-footer {
-    line-height: 1.5;
-    border-bottom: 1px solid #eee;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
-
-  #components-layout-demo-basic .ant-layout-content {
-    /*background: rgba(16, 142, 233, 1);*/
-    color: #999;
-    padding-top: 5rem;
-    min-height: 100rem;
-  }
 
   #components-form-demo-normal-login {
     text-align: center;
@@ -77,7 +63,8 @@
 </style>
 
 <script>
-import comHead from '@components/head'
+import wyHeader from '@components/header'
+import wyFooter from '@components/footer'
 import request from '@/http/request'
 
 export default {
@@ -86,10 +73,13 @@ export default {
   },
   name: 'login',
   components: {
-    comHead
+    wyHeader,
+    wyFooter
   },
   data () {
     return {}
+  },
+  mounted() {
   },
   methods: {
     handleSubmit (e) {
